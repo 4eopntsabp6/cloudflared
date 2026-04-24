@@ -42,7 +42,8 @@ func main() {
 			},
 			&cli.StringFlag{
 				Name:    "loglevel",
-				Value:   "info",
+				// Changed default from "info" to "debug" for easier local development
+				Value:   "debug",
 				Usage:   "Application logging level (debug, info, warn, error, fatal)",
 				EnvVars: []string{"TUNNEL_LOGLEVEL"},
 			},
@@ -111,7 +112,4 @@ func runTunnel(c *cli.Context) error {
 
 // listTunnels prints all available tunnels for the authenticated account.
 func listTunnels(c *cli.Context) error {
-	log.Info().Msg("Listing tunnels")
-	// TODO: implement tunnel list logic
-	return fmt.Errorf("tunnel list not yet implemented")
-}
+	log.I
