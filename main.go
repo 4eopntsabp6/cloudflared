@@ -90,7 +90,8 @@ func setupLogging(c *cli.Context) error {
 	zerolog.SetGlobalLevel(level)
 
 	if logfile := c.String("logfile"); logfile != "" {
-		f, err := os.OpenFile(logfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+		// Use 0600 instead of 0644 - log files may contain sensitive tunnel credentials
+		f, err := os.OpenFile(logfile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0600)
 		if err != nil {
 			return fmt.Errorf("failed to open log file %q: %w", logfile, err)
 		}
@@ -110,9 +111,4 @@ func runTunnel(c *cli.Context) error {
 	return fmt.Errorf("tunnel run not yet implemented")
 }
 
-// listTunnels prints all available tunnels for the configured account.
-// TODO: implement tunnel list logic using the Cloudflare API
-func listTunnels(c *cli.Context) error {
-	log.Info().Msg("Listing tunnels")
-	return fmt.Errorf("tunnel list not yet implemented")
-}
+// listTunnels prints all available tunnels fo
