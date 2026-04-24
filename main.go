@@ -110,6 +110,9 @@ func runTunnel(c *cli.Context) error {
 	return fmt.Errorf("tunnel run not yet implemented")
 }
 
-// listTunnels prints all available tunnels for the authenticated account.
+// listTunnels prints all available tunnels for the configured account.
+// TODO: implement tunnel list logic using the Cloudflare API
 func listTunnels(c *cli.Context) error {
-	log.I
+	log.Info().Msg("Listing tunnels")
+	return fmt.Errorf("tunnel list not yet implemented")
+}
