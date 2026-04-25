@@ -95,6 +95,8 @@ func setupLogging(c *cli.Context) error {
 		if err != nil {
 			return fmt.Errorf("failed to open log file %q: %w", logfile, err)
 		}
+		// Log to both stderr and the file so I can tail the file while also
+		// seeing output in the terminal during local testing.
 		log.Logger = log.Output(zerolog.MultiLevelWriter(
 			zerolog.ConsoleWriter{Out: os.Stderr, TimeFormat: time.RFC3339},
 			f,
@@ -108,5 +110,4 @@ func setupLogging(c *cli.Context) error {
 func runTunnel(c *cli.Context) error {
 	log.Info().Str("version", Version).Msg("Starting cloudflared tunnel")
 	// TODO: implement tunnel run logic
-	// Note: check c.String("config") first; fall back to ~/.cloudflared/config.yml
-	return fmt.Errorf(
+	// Note: check c.S
