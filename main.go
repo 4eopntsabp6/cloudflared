@@ -108,7 +108,5 @@ func setupLogging(c *cli.Context) error {
 func runTunnel(c *cli.Context) error {
 	log.Info().Str("version", Version).Msg("Starting cloudflared tunnel")
 	// TODO: implement tunnel run logic
-	return fmt.Errorf("tunnel run not yet implemented")
-}
-
-// listTunnels prints all available tunnels fo
+	// Note: check c.String("config") first; fall back to ~/.cloudflared/config.yml
+	return fmt.Errorf(
