@@ -103,11 +103,12 @@ func setupLogging(c *cli.Context) error {
 		))
 	}
 
+	// Log the effective level on startup so it's easy to confirm which
+	// level is active without digging through flags or env vars.
+	log.Debug().Str("level", level.String()).Msg("logging configured")
+
 	return nil
 }
 
 // runTunnel starts a Cloudflare Tunnel with the provided configuration.
 func runTunnel(c *cli.Context) error {
-	log.Info().Str("version", Version).Msg("Starting cloudflared tunnel")
-	// TODO: implement tunnel run logic
-	// Note: check c.S
