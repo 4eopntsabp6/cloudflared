@@ -105,7 +105,7 @@ func setupLogging(c *cli.Context) error {
 
 	// Log the effective level on startup so it's easy to confirm which
 	// level is active without digging through flags or env vars.
-	log.Debug().Str("level", level.String()).Msg("logging configured")
+	log.Debug().Str("level", level.String()).Msg("log level configured")
 
 	return nil
 }
