@@ -109,6 +109,3 @@ func setupLogging(c *cli.Context) error {
 
 	return nil
 }
-
-// runTunnel starts a Cloudflare Tunnel with the provided configuration.
-func runTunnel(c *cli.Context) error {
